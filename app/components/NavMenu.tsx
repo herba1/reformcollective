@@ -36,15 +36,25 @@ export default function NavMenu({
   const item = useNav();
   // console.log(item);
 
+  // initial set size
+  useLayoutEffect(() => {
+    if (container.current)
+      item.setMenuHeight(container.current.offsetHeight.toString());
+  }, []);
+
   useLayoutEffect(() => {
     if (!container.current) return;
-    item.setMenuHeight(container.current.offsetHeight.toString());
-  }, [item.menuHeight]);
+    const handleResize = () => {
+      if (container.current)
+        item.setMenuHeight(container.current.offsetHeight.toString());
+    };
+    window.addEventListener("resize", handleResize);
+  }, [item]);
 
   return (
     <menu
       ref={container}
-      className={`navmenu mb-[-160%] grid grid-cols-4 gap-4 gap-y-10 bg-black px-4 py-10 text-amber-50 ${className}`}
+      className={`navmenu mb-[-160%] grid h-fit grid-cols-4 gap-4 gap-y-10 bg-black px-4 py-20 text-amber-50 ${className}`}
       {...props}
     >
       <ul className="col-span-full w-full">

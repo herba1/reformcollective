@@ -19,9 +19,12 @@ export default function Home() {
   return (
     <main
       id="main__container"
-      className="main__container ounded-3xl scale- isolate z-10 col-span-full overflow-hidden relative bg-black"
+      className="main__container origin-top relative isolate z-10 col-span-full overflow-hidden bg-black"
     >
-      <div id="main__content" className={`grid min-h-screen main__content overflow-clip bg-amber-50 font-sans`}>
+      <div
+        id="main__content"
+        className={`main__content origin-bottom grid min-h-screen overflow-clip bg-amber-50 font-sans`}
+      >
         <div className="col-span-full flex h-svh flex-col overflow-x-hidden">
           <div className="relative grid w-full max-w-full grow object-cover outline-1">
             <Image
@@ -52,7 +55,8 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="h-100 bg-amber-50"></div>
+        <div  className="h-[8000px] bg-amber-50"></div>
+        <Image src={'/idk.jpg'} width={500} height={500} alt="image" />
       </div>
     </main>
   );
