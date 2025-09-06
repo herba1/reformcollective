@@ -43,13 +43,8 @@ export function NavProvider({ children }: { children: React.ReactNode }) {
             scale: 0.95,
             duration: 1.3,
             pointerEvents: "none",
-            ease: "power4.inOut",
+            ease: "power3.inOut",
             y: parseFloat(menuHeight) + lenis?.actualScroll,
-            onComplete: () => {
-              console.log(parseInt(menuHeight));
-              console.log(lenis?.actualScroll);
-              console.log(parseInt(menuHeight) + lenis?.actualScroll);
-            },
             onReverseComplete: () => {
               tl.current?.revert();
               tl.current?.kill();

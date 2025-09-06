@@ -54,7 +54,7 @@ export default function NavMenu({
   return (
     <menu
       ref={container}
-      className={`navmenu mb-[-160%] grid h-fit grid-cols-4 gap-4 gap-y-10 bg-black px-4 py-20 text-amber-50 ${className}`}
+      className={`navmenu mx-auto mb-[-200%] grid h-fit w-full grid-cols-4 gap-4 gap-y-10 bg-black px-4 py-20 text-amber-50 xl:max-w-[70vw] ${className}`}
       {...props}
     >
       <ul className="col-span-full w-full">
@@ -62,7 +62,7 @@ export default function NavMenu({
           <li key={index} className="grid">
             <span className="flex">
               <h1
-                className={`${instrumentSerif.className} text-6xl text-nowrap`}
+                className={`${instrumentSerif.className} text-6xl text-nowrap sm:text-[clamp(3.75rem,10vw,8rem)]`}
               >
                 {item.title}
               </h1>
@@ -76,12 +76,12 @@ export default function NavMenu({
           </li>
         ))}
       </ul>
-      <button className="col-span-full flex touch-manipulation grid-cols-2 items-center justify-between rounded-full bg-red-600 px-6 py-5">
+      <button className="col-span-full flex touch-manipulation grid-cols-2 items-center justify-between rounded-full bg-red-600 px-6 py-5 sm:hidden">
         <span></span>
         <span className={`w-full text-xl font-bold`}>LET`S CHAT</span>
         <ArrowUpRight />
       </button>
-      <ul className="space-y-2">
+      <ul className="col-span-full flex w-full flex-col justify-between gap-2 sm:flex-row sm:items-end">
         {menuFooter.map((e, i) => {
           return (
             <li
@@ -94,6 +94,11 @@ export default function NavMenu({
             </li>
           );
         })}
+        <button className="col-span-full hidden touch-manipulation grid-cols-2 items-center justify-between rounded-full bg-red-600 px-6 py-5 sm:flex">
+          <span></span>
+          <span className={`w-full text-xl font-bold`}>LET`S CHAT</span>
+          <ArrowUpRight />
+        </button>
       </ul>
     </menu>
   );

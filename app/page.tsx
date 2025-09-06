@@ -1,17 +1,9 @@
-import { ArrowDown, Globe } from "lucide-react";
 import Image from "next/image";
-import { Instrument_Serif, Pixelify_Sans, Inter } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
+import Hero from "./components/Hero";
 
 const instrumentSerif = Instrument_Serif({
   weight: ["400"],
-  subsets: ["latin"],
-});
-
-const pixelifySans = Pixelify_Sans({
-  subsets: ["latin"],
-});
-
-const inter = Inter({
   subsets: ["latin"],
 });
 
@@ -19,44 +11,15 @@ export default function Home() {
   return (
     <main
       id="main__container"
-      className="main__container origin-top relative isolate z-10 col-span-full overflow-hidden bg-black"
+      className="main__container relative isolate z-10 col-span-full origin-top overflow-hidden bg-black"
     >
       <div
         id="main__content"
-        className={`main__content origin-bottom grid min-h-screen overflow-clip bg-amber-50 font-sans`}
+        className={`main__content grid origin-bottom overflow-clip bg-amber-50 font-sans`}
       >
-        <div className="col-span-full flex h-svh flex-col overflow-x-hidden">
-          <div className="relative grid w-full max-w-full grow object-cover outline-1">
-            <Image
-              src={"/hero.jpeg"}
-              className="absolute top-0 left-0 z-0 h-full w-full object-cover"
-              alt="idk"
-              width={500}
-              height={500}
-              priority
-            />
-            <div className="z-10 w-full self-end overflow-hidden">
-              <p
-                className={`animate-marquee flex w-max self-end text-8xl tracking-tighter text-nowrap text-black ${inter.className}`}
-              >
-                REFORM COLLECTIVE
-                <Globe size={32} />
-                REFORM COLLECTIVE
-                <Globe size={32} />
-              </p>
-            </div>
-          </div>
-          <div
-            className={`flex justify-between bg-amber-50 px-4 py-6 ${pixelifySans.className} `}
-          >
-            <span>EST.2015</span>
-            <span className="flex">
-              (SCROLL DOWN <ArrowDown />)
-            </span>
-          </div>
-        </div>
-        <div  className="h-[8000px] bg-amber-50"></div>
-        <Image src={'/idk.jpg'} width={500} height={500} alt="image" />
+        <Hero />
+        <div className="h-[8000px] bg-amber-50"></div>
+        <Image src={"/idk.jpg"} width={500} height={500} alt="image" />
       </div>
     </main>
   );
