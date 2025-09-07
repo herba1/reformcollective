@@ -34,9 +34,6 @@ export default function NavMenu({
 }) {
   const container = useRef<HTMLMenuElement>(null);
   const item = useNav();
-  // console.log(item);
-
-  // initial set size
   useLayoutEffect(() => {
     if (container.current)
       item.setMenuHeight(container.current.offsetHeight.toString());
@@ -54,7 +51,7 @@ export default function NavMenu({
   return (
     <menu
       ref={container}
-      className={`navmenu mx-auto mb-[-200%] grid h-fit w-full grid-cols-4 gap-4 gap-y-10 bg-black px-4 py-20 text-amber-50 xl:max-w-[70vw] ${className}`}
+      className={`navmenu mx-auto mb-[-200%] grid h-fit w-full grid-cols-4 gap-4 gap-y-10 bg-black px-4 py-10 sm:py-10 text-amber-50 xl:max-w-[75vw] ${className}`}
       {...props}
     >
       <ul className="col-span-full w-full">
@@ -62,7 +59,7 @@ export default function NavMenu({
           <li key={index} className="grid">
             <span className="flex">
               <h1
-                className={`${instrumentSerif.className} text-6xl text-nowrap sm:text-[clamp(3.75rem,10vw,8rem)]`}
+                className={`${instrumentSerif.className} text-6xl text-nowrap sm:text-[clamp(3.75rem,8vw,8rem)]`}
               >
                 {item.title}
               </h1>

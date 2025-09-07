@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Instrument_Serif } from "next/font/google";
 import Hero from "./components/Hero";
+import Button from "./components/Button";
+import { ArrowUpRight } from "lucide-react";
 
 const instrumentSerif = Instrument_Serif({
   weight: ["400"],
@@ -18,8 +20,13 @@ export default function Home() {
         className={`main__content grid origin-bottom overflow-clip bg-amber-50 font-sans`}
       >
         <Hero />
-        <div className="h-[8000px] bg-amber-50"></div>
-        <Image src={"/idk.jpg"} width={500} height={500} alt="image" />
+        <div className="grid h-svh place-items-center bg-amber-50">
+          <Button>
+            <span className="flex items-center justify-center">
+              CONTACT US <ArrowUpRight />
+            </span>
+          </Button>
+        </div>
       </div>
     </main>
   );

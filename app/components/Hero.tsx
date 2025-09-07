@@ -68,9 +68,9 @@ export default function Hero({ className = "" }) {
     >
       <div className="hero__main relative grid w-full max-w-full grow object-cover">
         <video
-          src={"/vid3.mp4"}
-          className="absolute contrast-50 saturate-150 top-0 left-0 z-0 h-full w-full object-cover"
-          loop={true}
+          src={"/vid.mp4"}
+          className="absolute contrast-80 saturate-150  top-0 left-0 z-0 h-full w-full object-cover"
+          loop={false}
           autoPlay
           controls={false}
         ></video>
@@ -105,7 +105,7 @@ export default function Hero({ className = "" }) {
             <SquareChevronDown className="animate-pulse" size={15} />)
           </span>
         </span>
-        <span>WE LIVE IN THE DETAILS ( C )</span>
+        <span className="hidden sm:inline-block ">WE LIVE IN THE DETAILS ( C )</span>
       </div>
     </section>
   );
