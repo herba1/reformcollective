@@ -1,4 +1,10 @@
-import React, { useContext, createContext, useState, useRef, useEffect } from "react";
+import React, {
+  useContext,
+  createContext,
+  useState,
+  useRef,
+  RefObject,
+} from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useLenis } from "lenis/react";
@@ -7,6 +13,7 @@ type NavContextType = {
   menuHeight: string;
   setMenuHeight: (height: string) => void;
   isOpen: boolean;
+  reverseComplete: RefObject<boolean>;
   setIsOpen: (open: boolean) => void;
 };
 
@@ -16,19 +23,20 @@ export function NavProvider({ children }: { children: React.ReactNode }) {
   // need menu to trigger a new height
   const [menuHeight, setMenuHeight] = useState<string>("600");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const reverseComplete = useRef(true);
   const lenis = useLenis(() => {});
   const tl = useRef<gsap.core.Timeline | null>(null);
-
 
   const navItem = {
     menuHeight,
     setMenuHeight,
     isOpen,
     setIsOpen,
+    reverseComplete
   };
   useGSAP(
     () => {
-      console.log(lenis?.actualScroll);
+
       if (!tl.current && isOpen && lenis) {
         tl.current = gsap.timeline({ paused: true, repeatRefresh: true });
         tl.current
@@ -38,25 +46,33 @@ export function NavProvider({ children }: { children: React.ReactNode }) {
           .set("#main__content", {
             y: lenis?.actualScroll * -1,
           })
-          .fromTo("#main__container",{}, {
-            borderRadius: "24px",
-            scale: 0.95,
-            duration: 1.3,
-            pointerEvents: "none",
-            ease: "power3.inOut",
-            y: parseFloat(menuHeight) + lenis?.actualScroll,
-            onReverseComplete: () => {
-              tl.current?.revert();
-              tl.current?.kill();
-              tl.current = null;
-              lenis.start();
-            },
-          });
+          .fromTo(
+            "#main__container",
+            {},
+            {
+              delay: 0.2,
+              borderRadius: "24px",
+              scale: 0.95,
+              duration: 1.3,
+              pointerEvents: "none",
+              ease: "power3.inOut",
+              y: parseFloat(menuHeight) + lenis?.actualScroll,
+              onReverseComplete: () => {
+                tl.current?.revert();
+                tl.current?.kill();
+                tl.current = null;
+                reverseComplete.current = true;
+                lenis.start();
+              },
+              onStart:()=>{
+                reverseComplete.current = false;
+              }
+            }
+          );
       }
 
       if (navItem.isOpen && tl.current) {
         lenis?.stop();
-        console.log('stopped');
         tl.current.play();
       }
 

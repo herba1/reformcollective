@@ -7,8 +7,9 @@ import MorphSVGPlugin from "gsap/MorphSVGPlugin";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { useState } from "react";
+import Observer from "gsap/Observer";
 
-gsap.registerPlugin(MorphSVGPlugin);
+gsap.registerPlugin(MorphSVGPlugin, Observer);
 
 function MenuButton() {
   const container = useRef<HTMLButtonElement>(null);
@@ -17,6 +18,7 @@ function MenuButton() {
   const [isHover, setIsHover] = useState<boolean>(false);
   const navItem = useNav();
 
+  // open split text animation
   useGSAP(
     () => {
       if (!tl.current) {
@@ -52,6 +54,7 @@ function MenuButton() {
     { scope: container, dependencies: [navItem.isOpen] }
   );
 
+  //underline on button
   useGSAP(
     () => {
       if (!tl2.current) {
@@ -72,7 +75,7 @@ function MenuButton() {
               delay: 0.1,
             },
             "<"
-          )
+          );
       }
 
       if (isHover && tl2.current) {
@@ -99,13 +102,16 @@ function MenuButton() {
       }}
       className="relative flex cursor-pointer touch-manipulation items-center justify-between text-amber-50"
     >
-      <div className="overflow-clip grid h-fit grid-cols-1 grid-rows-1 items-center justify-center font-semibold">
+      <div className="grid h-fit grid-cols-1 grid-rows-1 items-center justify-center overflow-clip font-semibold">
         <span className="button__close col-start-1 row-start-1">
           <span className="flex">
             <Minus />
             <span>CLOSE</span>
           </span>
-          <div aria-hidden className="relative h-fit w-full mb-0.5 overflow-clip">
+          <div
+            aria-hidden
+            className="relative mb-0.5 h-fit w-full overflow-clip"
+          >
             <div className="underline__out h-0.5 w-full bg-amber-50"></div>
             <div className="underline__in absolute right-full bottom-0 h-0.5 w-full bg-amber-50"></div>
           </div>
@@ -116,7 +122,10 @@ function MenuButton() {
             {/* <ArrowRight className="open__svg2 hidden" /> */}
             <span>MENU</span>
           </span>
-          <div aria-hidden className="relative mb-0.5 h-fit w-full overflow-clip">
+          <div
+            aria-hidden
+            className="relative mb-0.5 h-fit w-full overflow-clip"
+          >
             <div className="underline__out h-0.5 w-full bg-amber-50"></div>
             <div className="underline__in absolute right-full bottom-0 h-0.5 w-full bg-amber-50"></div>
           </div>
@@ -132,8 +141,43 @@ export default function NavHeader({
 }: {
   className: string;
 }) {
+  const container = useRef<HTMLHeadElement>(null);
+  const isOpenRef = useRef(false);
+  const { isOpen, reverseComplete} = useNav();
+  const tl = useRef<GSAPTimeline>(null);
+  useGSAP(
+    () => {
+      isOpenRef.current = isOpen;
+
+      const observer = Observer.create({
+        onDown: (e) => {
+          console.log(e.deltaY);
+          if (!isOpenRef.current && reverseComplete.current) {
+            gsap.to(container.current, {
+              yPercent: -100,
+              duration: 1,
+              ease: "power4.out",
+            });
+          }
+        },
+        onUp: (e) => {
+          gsap.to(container.current, {
+            yPercent: 0,
+            duration: 1,
+            ease: "power4.out",
+          });
+        },
+      });
+      return () => {
+        observer.kill();
+      };
+    },
+    { scope: container, dependencies: [isOpen] }
+  );
+
   return (
     <header
+      ref={container}
       className={`flex h-18 items-center justify-between bg-black px-4 py-4 ${className}`}
       {...props}
     >

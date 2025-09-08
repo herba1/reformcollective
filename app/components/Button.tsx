@@ -8,12 +8,14 @@ gsap.registerPlugin(Observer);
 
 type ButtonProps = {
   className?: string;
+  btnClassName?: string;
   children: React.ReactNode;
   props?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 };
 
 export default function Button({
   className = "",
+  btnClassName = "",
   children,
   ...props
 }: ButtonProps) {
@@ -34,12 +36,12 @@ export default function Button({
       const splitTl = gsap.timeline({ paused: true });
       splitTl.to([".text__top", ".text__bottom"], {
         yPercent: -100,
-        ease: "power2.inOut",
-        duration: 0.7,
+        ease: "power3.inOut",
+        duration: 0.8,
       });
       outlines?.forEach((e) => {
         gsap.set(e, {
-          scale: 0.98,
+          scale: 0.99,
         });
       });
 
@@ -53,7 +55,7 @@ export default function Button({
           gsap.to(mainElement.current, {
             overwrite: true,
             immediateRender: true,
-            ease: "power4.out",
+            ease: "power2.out",
             duration: 1,
             x: cords.current.x,
             y: cords.current.y,
@@ -63,7 +65,7 @@ export default function Button({
               immediateRender: true,
               overwrite: true,
               duration: 1,
-              ease: "power4.out",
+              ease: "power2.out",
               y: 0,
               x: 0,
             });
@@ -80,7 +82,7 @@ export default function Button({
             cords.current.y = ((e.y - (top + height / 2)) / height) * 2;
           }
           gsap.to(mainElement.current, {
-            ease: "power4.out",
+            ease: "power2.out",
             duration: 2,
             x: cords.current.x * -4,
             y: cords.current.y * -4,
@@ -88,10 +90,10 @@ export default function Button({
 
           outlines?.forEach((outline, index) => {
             gsap.to(outline, {
-              ease: "power4.out",
+              ease: "power2.out",
               duration: 2,
-              y: cords.current.y * index * 4,
-              x: cords.current.x * index * 4,
+              y: cords.current.y * index * 3,
+              x: cords.current.x * index * 3,
             });
           });
         },
@@ -106,16 +108,19 @@ export default function Button({
     <button
       {...props}
       ref={container}
-      className={`relative rounded-full bg-transparent leading-none font-semibold tracking-tight text-amber-50 ${className}`}
+      className={`relative rounded-full bg-transparent ${className}`}
     >
       <div
         ref={mainElement}
-        className="button__main relative top-0 left-0 z-40 grid h-full w-full grid-cols-1 grid-rows-1 rounded-full bg-black px-8 py-8"
+        className={`button__main relative top-0 left-0 z-40 grid h-full w-full cursor-pointer grid-cols-1 grid-rows-1 rounded-full bg-black px-8 py-8 leading-none font-semibold tracking-tight text-amber-50 ${btnClassName}`}
         onMouseEnter={() => (hoverRef.current = true)}
         onMouseLeave={() => (hoverRef.current = false)}
       >
         <span className="relative grid h-fit w-fit grid-cols-1 grid-rows-1 overflow-clip">
-          <span aria-hidden className="text__top relative z-50 col-start-1 row-start-1 inline-block">
+          <span
+            aria-hidden
+            className="text__top relative z-50 col-start-1 row-start-1 inline-block"
+          >
             {children}
           </span>
           <span className="text__bottom relative z-50 col-start-1 row-start-1 inline-block translate-y-full">
@@ -129,7 +134,11 @@ export default function Button({
       ></div>
       <div
         aria-hidden
-        className="outlines pointer-events-none absolute top-0 left-0 z-10 h-full w-full rounded-full outline-1 outline-blue-500"
+        className="outlines pointer-events-none absolute top-0 left-0 z-10 h-full w-full rounded-full outline-1 outline-orange-500"
+      ></div>
+      <div
+        aria-hidden
+        className="outlines pointer-events-none absolute top-0 left-0 z-10 h-full w-full rounded-full outline-1 outline-yellow-500"
       ></div>
       <div
         aria-hidden
@@ -137,7 +146,7 @@ export default function Button({
       ></div>
       <div
         aria-hidden
-        className="outlines pointer-events-none absolute top-0 left-0 z-10 h-full w-full rounded-full outline-1 outline-orange-500"
+        className="outlines pointer-events-none absolute top-0 left-0 z-10 h-full w-full rounded-full outline-1 outline-blue-500"
       ></div>
     </button>
   );
