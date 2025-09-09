@@ -151,19 +151,18 @@ export default function NavHeader({
 
       const observer = Observer.create({
         onDown: (e) => {
-          console.log(e.deltaY);
           if (!isOpenRef.current && reverseComplete.current) {
             gsap.to(container.current, {
               yPercent: -100,
-              duration: 1,
+              duration: 2,
               ease: "power4.out",
             });
           }
         },
-        onUp: (e) => {
+        onUp: () => {
           gsap.to(container.current, {
             yPercent: 0,
-            duration: 1,
+            duration: 2,
             ease: "power4.out",
           });
         },

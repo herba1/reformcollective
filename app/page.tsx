@@ -1,13 +1,13 @@
-import Image from "next/image";
-import { Instrument_Serif } from "next/font/google";
+// import { Instrument_Serif } from "next/font/google";
 import Hero from "./components/Hero";
 import Button from "./components/Button";
 import { ArrowUpRight } from "lucide-react";
+import ProjectCard from "./components/ProjectCard";
 
-const instrumentSerif = Instrument_Serif({
-  weight: ["400"],
-  subsets: ["latin"],
-});
+// const instrumentSerif = Instrument_Serif({
+//   weight: ["400"],
+//   subsets: ["latin"],
+// });
 
 export default function Home() {
   return (
@@ -21,6 +21,7 @@ export default function Home() {
       >
         <Hero />
         <div className="grid h-svh place-items-center bg-amber-50">
+          <ProjectCard/>
           <Button>
             <span className="flex items-center justify-center">
               CONTACT US <ArrowUpRight />
