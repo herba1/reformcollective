@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Button from "./components/Button";
 import { ArrowUpRight } from "lucide-react";
 import ProjectCard from "./components/ProjectCard";
+import Projects, { ProjectTransition } from "./components/Projects";
 
 // const instrumentSerif = Instrument_Serif({
 //   weight: ["400"],
@@ -19,15 +20,10 @@ export default function Home() {
         id="main__content"
         className={`main__content grid origin-bottom overflow-clip bg-amber-50 font-sans`}
       >
-        <Hero />
-        <div className="grid h-svh place-items-center bg-amber-50">
-          <ProjectCard/>
-          <Button>
-            <span className="flex items-center justify-center">
-              CONTACT US <ArrowUpRight />
-            </span>
-          </Button>
-        </div>
+        <Hero className="mb-24" />
+        <Projects />
+        <ProjectTransition/>
+        <div className="h-[2000px]"></div>
       </div>
     </main>
   );

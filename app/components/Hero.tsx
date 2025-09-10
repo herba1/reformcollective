@@ -140,20 +140,20 @@ export default function Hero({ className = "" }) {
               </span>
             </Button>
           </div>
-          {/* <video
+          <video
             src={"/vid5.mp4"}
             className="absolute top-0 left-0 z-0 h-full w-full object-cover contrast-80 saturate-150"
             loop={false}
             autoPlay
             controls={false}
-          ></video> */}
-          <Image
+          ></video>
+          {/* <Image
             src={"/hero2.png"}
             height={2000}
             width={2000}
             alt="none"
             className="absolute top-0 left-0 z-0 h-full w-full object-cover contrast-80 saturate-150"
-          ></Image>
+          ></Image> */}
           <div className="hero__marquee pointer-events-none z-10 w-full self-end overflow-hidden">
             <p
               className={`animate-marquee flex w-max items-stretch self-end text-[20vw] leading-none tracking-tighter text-nowrap text-black lg:text-[15vw] ${inter.className}`}

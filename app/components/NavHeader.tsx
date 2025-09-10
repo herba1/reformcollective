@@ -150,6 +150,7 @@ export default function NavHeader({
       isOpenRef.current = isOpen;
 
       const observer = Observer.create({
+        type:'scroll',
         onDown: (e) => {
           if (!isOpenRef.current && reverseComplete.current) {
             gsap.to(container.current, {

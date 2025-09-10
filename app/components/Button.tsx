@@ -36,8 +36,8 @@ export default function Button({
       const splitTl = gsap.timeline({ paused: true });
       splitTl.to([".text__top", ".text__bottom"], {
         yPercent: -100,
-        ease: "power3.inOut",
-        duration: 0.8,
+        ease: "power4.inOut",
+        duration: 0.5,
       });
       outlines?.forEach((e) => {
         gsap.set(e, {
@@ -112,11 +112,11 @@ export default function Button({
     >
       <div
         ref={mainElement}
-        className={`button__main relative top-0 left-0 z-40 grid h-full w-full cursor-pointer grid-cols-1 grid-rows-1 rounded-full bg-black px-8 py-8 leading-none font-semibold tracking-tight text-amber-50 ${btnClassName}`}
+        className={`button__main place-content-stretch  relative top-0 left-0 z-40 grid h-full w-full cursor-pointer grid-cols-1 grid-rows-1 rounded-full bg-black px-8 py-8 leading-none font-semibold tracking-tight text-amber-50 ${btnClassName}`}
         onMouseEnter={() => (hoverRef.current = true)}
         onMouseLeave={() => (hoverRef.current = false)}
       >
-        <span className="relative grid h-fit w-fit grid-cols-1 grid-rows-1 overflow-clip">
+        <span className="relative grid h-fit w-full grid-cols-1 grid-rows-1 overflow-clip">
           <span
             aria-hidden
             className="text__top relative z-50 col-start-1 row-start-1 inline-block"
