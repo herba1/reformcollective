@@ -18,9 +18,9 @@ const pixelifySans = Pixelify_Sans({
 export default function Projects({ className = "" }) {
   return (
     <section
-      className={`mx-6 flex grid-cols-12 flex-col gap-6 md:grid md:items-stretch ${className}`}
+      className={`mx-5 flex grid-cols-12 flex-col gap-6 md:grid md:items-stretch ${className}`}
     >
-      <div className="col-span-full mb-4 flex w-fit flex-col">
+      <div className="col-span-full sm:mb-4 flex w-fit flex-col">
         <p className="flex flex-col text-7xl tracking-tighter sm:flex-row sm:items-center sm:gap-3 lg:text-8xl">
           <span>Our</span>
           <span
@@ -94,8 +94,8 @@ export function ProjectTransition() {
     <div className="mx-4 my-32">
       <p className={`flex text-nowrap flex-col md:gap-[2vw] md:justify-center md:items-start md:flex-row md:text-[7.85vw] text-6xl tracking-tight `}>
         <span className={`${instrumentSerif.className}`}>We do many </span>
-        <Button className="hidden w-fit md:inline-block" btnClassName="lg:py-[4vw] lg:px-[5.5vw]">
-          <span className="flex w-full items-center justify-between text-xl tracking-tighter">
+        <Button className="hidden w-fit md:inline-block" btnClassName="lg:py-[3.7vw] lg:px-[5.5vw]">
+          <span className="flex w-full items-center justify-between text-xl md:text-[1.5vw] tracking-tighter">
             <span></span>
             <span>SEE ALL WORK</span>
             <ArrowUpRight />

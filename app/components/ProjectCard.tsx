@@ -14,7 +14,6 @@ const pixelifySans = Pixelify_Sans({
   subsets: ["latin"],
 });
 
-
 type ProjectCardType = {
   title: string;
   src: string;
@@ -23,7 +22,7 @@ type ProjectCardType = {
   subtitle?: string;
   className?: string;
   imgClassName?: string;
-  variant?:'default' | 'compact'
+  variant?: "default" | "compact";
 };
 
 export default function ProjectCard({
@@ -55,7 +54,12 @@ export default function ProjectCard({
         ease: "power4.out",
       });
 
+      if (Observer.isTouch) {
+        return;
+      }
+
       Observer.create({
+        type: "pointer",
         target: container.current,
         onMove: (e) => {
           const left = imageRef.current?.getBoundingClientRect().left ?? 0;
@@ -101,12 +105,13 @@ export default function ProjectCard({
     },
     { scope: container, dependencies: [hover] }
   );
+  console.log(subtitle?.length)
 
   return (
     <a
       href={href}
       ref={container}
-      className={`flex h-full  flex-col gap-4 overflow-clip rounded-xl bg-neutral-800 p-2 ${className}`}
+      className={`flex h-fit shrink grow-0 flex-col gap-2 overflow-clip rounded-2xl bg-neutral-800 p-2 ${className}`}
       onMouseEnter={() => {
         setHover(true);
       }}
@@ -114,7 +119,9 @@ export default function ProjectCard({
         setHover(false);
       }}
     >
-      <div className={`image__container relative overflow-clip rounded-lg object-none ${imgClassName}`}>
+      <div
+        className={`image__container relative overflow-clip rounded-xl object-none ${imgClassName}`}
+      >
         <Image
           ref={imageRef}
           width={2000}
@@ -124,19 +131,23 @@ export default function ProjectCard({
           alt="img"
         ></Image>
       </div>
-      <div className="mb-4 mt-2  h-fit flex flex-col flex-wrap justify-between gap-4 lg:flex-row lg:items-center">
+      <div className="mt-1 mb-4 flex h-fit flex-col flex-wrap justify-between gap-4 md:mt-4 lg:flex-row lg:items-center">
         <section
           ref={titleRef}
-          className="gap-2  h-fit leading-none tracking-tighter text-amber-50 sm:flex"
+          className="h-fit gap-2 leading-none tracking-tighter text-amber-50 sm:flex"
         >
           <h2 className="text-xl font-bold">{title}</h2>
-          <h3 className={`text-xl max-w-4/5 font-light ${variant==='compact'?'md:hidden':''}`}>{subtitle}</h3>
+          <h3
+            className={` max-w-7/10 w-full h-fit text-xl leading-[1.20] ${subtitle?.length||0 < 20?'whitespace-nowrap':''} ${variant === "compact" ? "md:hidden" : ""}`}
+          >
+            {subtitle}
+          </h3>
         </section>
-        <ul ref={tagsRef} className="flex flex-wrap gap-2">
+        <ul ref={tagsRef} className="flex flex-wrap gap-4">
           {tags.map((element, index) => {
             return (
               <li
-                className={`rounded-full px-2 py-1 text-sm text-amber-50 outline-1 ${pixelifySans.className}`}
+                className={`rounded-full px-2 py-1 text-sm tracking-tight text-amber-50 outline-[1.5px] ${pixelifySans.className}`}
                 key={index}
               >
                 {element}

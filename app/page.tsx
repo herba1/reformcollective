@@ -20,7 +20,7 @@ export default function Home() {
         id="main__content"
         className={`main__content grid origin-bottom overflow-clip bg-amber-50 font-sans`}
       >
-        <Hero className="mb-24" />
+        <Hero className=" mb-12 md:mb-24" />
         <Projects />
         <ProjectTransition/>
         <div className="h-[2000px]"></div>
