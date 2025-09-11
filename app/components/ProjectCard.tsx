@@ -111,7 +111,7 @@ export default function ProjectCard({
     <a
       href={href}
       ref={container}
-      className={`flex h-fit shrink grow-0 flex-col gap-2 overflow-clip rounded-2xl bg-neutral-800 p-2 ${className}`}
+      className={`flex h-full shrink grow-0 flex-col gap-2 overflow-clip rounded-2xl bg-neutral-800 p-2 ${className}`}
       onMouseEnter={() => {
         setHover(true);
       }}
@@ -131,14 +131,14 @@ export default function ProjectCard({
           alt="img"
         ></Image>
       </div>
-      <div className="mt-1 mb-4 flex h-fit flex-col flex-wrap justify-between gap-4 md:mt-4 lg:flex-row lg:items-center">
+      <div className="mt-1 mb-4 flex h-fit flex-col flex-wrap justify-between gap-4 md:mt-4 lg:items-center lg:flex-row ">
         <section
           ref={titleRef}
           className="h-fit gap-2 leading-none tracking-tighter text-amber-50 sm:flex"
         >
           <h2 className="text-xl font-bold">{title}</h2>
           <h3
-            className={` max-w-7/10 w-full h-fit text-xl leading-[1.20] ${subtitle?.length||0 < 20?'whitespace-nowrap':''} ${variant === "compact" ? "md:hidden" : ""}`}
+            className={` max-w-[63%] w-full h-fit text-xl leading-[1.20] ${ subtitle?.length && subtitle?.length < 30?'whitespace-nowrap':''} ${variant === "compact" ? "md:hidden" : ""}`}
           >
             {subtitle}
           </h3>

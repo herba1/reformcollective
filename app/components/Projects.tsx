@@ -91,7 +91,7 @@ export default function Projects({ className = "" }) {
 
 export function ProjectTransition() {
   return (
-    <div className="mx-4 my-32">
+    <div className="mx-4 my-28">
       <p className={`flex text-nowrap flex-col md:gap-[2vw] md:justify-center md:items-start md:flex-row md:text-[7.85vw] text-6xl tracking-tight `}>
         <span className={`${instrumentSerif.className}`}>We do many </span>
         <Button className="hidden w-fit md:inline-block" btnClassName="lg:py-[3.7vw] lg:px-[5.5vw]">

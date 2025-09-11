@@ -4,6 +4,7 @@ import Button from "./components/Button";
 import { ArrowUpRight } from "lucide-react";
 import ProjectCard from "./components/ProjectCard";
 import Projects, { ProjectTransition } from "./components/Projects";
+import Awards from "./components/Awards";
 
 // const instrumentSerif = Instrument_Serif({
 //   weight: ["400"],
@@ -23,6 +24,7 @@ export default function Home() {
         <Hero className=" mb-12 md:mb-24" />
         <Projects />
         <ProjectTransition/>
+        <Awards/>
         <div className="h-[2000px]"></div>
       </div>
     </main>

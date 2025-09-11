@@ -168,7 +168,7 @@ export default function Hero({ className = "" }) {
           </div>
         </div>
         <div
-          className={`hero__footer flex justify-between bg-amber-50 px-4 py-6 ${pixelifySans.className} `}
+          className={`hero__footer flex justify-between bg-amber-50 px-5 py-6 ${pixelifySans.className} `}
         >
           <span>EST.2015</span>
           <span className="flex items-center justify-center">
