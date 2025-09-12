@@ -105,7 +105,6 @@ export default function ProjectCard({
     },
     { scope: container, dependencies: [hover] }
   );
-  console.log(subtitle?.length)
 
   return (
     <a

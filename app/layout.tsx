@@ -1,5 +1,5 @@
 "use client";
-import { Inter } from "next/font/google";
+import { DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import NavHeader from "./components/NavHeader";
 import NavMenu from "./components/NavMenu";
@@ -12,9 +12,15 @@ import { ReactLenis } from "lenis/react";
 
 gsap.registerPlugin(GSDevTools);
 
-const inter = Inter({
+export const inter = Inter({
   subsets: ["latin"],
+  weight:'variable',
 });
+
+export const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight:'variable',
+})
 
 export default function RootLayout({
   children,
