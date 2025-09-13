@@ -86,11 +86,24 @@ const StringMaterial = shaderMaterial(
 
 extend({ StringMaterial });
 
+// Type for our custom shader material with additional uniforms
+type CustomStringMaterial = THREE.ShaderMaterial & {
+  time: number;
+  cursorPos: THREE.Vector2;
+  stringPos: THREE.Vector3;
+  waveSpeed: number;
+  waveAmplitude: number;
+  waveFrequency: number;
+  distortionRadius: number;
+  distortionStrength: number;
+  opacity: number;
+};
+
 // Extend Three.js intrinsic elements
 declare module '@react-three/fiber' {
   interface ThreeElements {
     stringMaterial: {
-      ref?: React.Ref<any>;
+      ref?: React.Ref<CustomStringMaterial>;
       transparent?: boolean;
       distortionRadius?: number;
       distortionStrength?: number;
@@ -108,7 +121,7 @@ interface WavyStringProps {
 }
 
 interface WavyStringRef {
-  materialRef: React.RefObject<any>;
+  materialRef: React.RefObject<CustomStringMaterial | null>;
   position: [number, number, number];
   speed: number;
   amplitude: number;
@@ -116,7 +129,7 @@ interface WavyStringRef {
 }
 
 const WavyString = React.forwardRef<WavyStringRef, WavyStringProps>(({ position, speed, amplitude, frequency }, ref) => {
-  const materialRef = useRef<any>(null);
+  const materialRef = useRef<CustomStringMaterial | null>(null);
 
   // Expose material ref and properties to parent
   React.useImperativeHandle(ref, () => ({
