@@ -1,6 +1,10 @@
+"use client";
 import { ArrowUpRight } from "lucide-react";
 import { Instrument_Serif, Pixelify_Sans } from "next/font/google";
 import Image from "next/image";
+import CursorInvert from "./CursorInvert";
+import Experience from "./Experience";
+import { useState } from "react";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -12,7 +16,6 @@ const pixelifySans = Pixelify_Sans({
   weight: "variable",
 });
 
-import { dmSans } from "../layout";
 const AWARDS = [
   { title: "Awwwards", amount: "8" },
   { title: "Apple", amount: "2" },
@@ -22,17 +25,33 @@ const AWARDS = [
 ];
 
 export default function Awards() {
+  const [hover, setHover] = useState(false);
+
   return (
-    <section className={`h-[150lvh] outline-1 outline-black/30`}>
-      <article className="mx-5 md:grid">
-        <h2 className={`flex flex-col leading-none`}>
-          <span className={` ${instrumentSerif.className} text-6xl`}>
+    <section
+      onMouseEnter={() => {
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+      }}
+      className={`relative z-0 flex h-[120lvh] flex-col justify-center overflow-hidden bg-amber-50 outline-1 outline-black/30`}
+    >
+      <Experience />
+      <CursorInvert hover={hover} className="pointer-events-none select-none" />
+      <article className="z-10 mx-5 my-auto grid-cols-12 md:mx-auto md:grid md:max-w-[80vw] md:gap-6 lg:max-w-[50vw]">
+        <h2 className={`col-span-full flex flex-col leading-none`}>
+          <span
+            className={` ${instrumentSerif.className} text-6xl md:text-9xl`}
+          >
             Awards
           </span>
-          <span className="text-5xl tracking-tighter">& Recognitions</span>
+          <span className="text-5xl tracking-tighter md:text-6xl">
+            & Recognitions
+          </span>
         </h2>
-        <div className="mt-18 flex flex-col gap-18">
-          <div className="flex flex-col gap-4">
+        <div className="col-span-full mt-18 flex grid-cols-12 flex-col gap-18 md:grid md:gap-0">
+          <div className="col-span-5 flex flex-col gap-4">
             <Image
               height={200}
               width={200}
@@ -40,29 +59,29 @@ export default function Awards() {
               alt="runway logo"
               src={"/runway.svg"}
             ></Image>
-            <p className="flex flex-col gap-0 leading-none text-2xl tracking-tighter">
+            <p className="flex flex-col gap-0 text-2xl leading-none tracking-tighter">
               <span className={``}>Reform Collective</span>
               <span>Webby Winner {"'"}23</span>
             </p>
             <div>
               <a
                 href="#"
-                className="flex w-fit font-semibold tracking-tighter items-center border-b-2 text-lg"
+                className="flex w-fit items-center border-b-2 text-lg font-semibold tracking-tighter"
               >
                 WEBBY AWARD WINNER <ArrowUpRight />
               </a>
               <p
-                className={`mt-4 text-sm max-w-2/3 leading-none ${pixelifySans.className}`}
+                className={`mt-4 max-w-2/3 text-sm leading-none ${pixelifySans.className}`}
               >
                 WEBSITES AND MOBILE SITES FINANCIAL SERVICES/BANKING 2024
               </p>
             </div>
           </div>
-          <ul className="flex flex-col gap-2">
+          <ul className="col-span-6 col-start-7 flex flex-col gap-2">
             {AWARDS.map((award) => {
               return (
                 <li
-                  className="flex w-full items-center  tracking-tighter justify-between"
+                  className="flex w-full items-center justify-between tracking-tighter"
                   key={award.title}
                 >
                   <span className="text-4xl">{award.title}</span>

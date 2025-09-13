@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import ProjectCard from "./components/ProjectCard";
 import Projects, { ProjectTransition } from "./components/Projects";
 import Awards from "./components/Awards";
+import Experience from "./components/Experience";
 
 // const instrumentSerif = Instrument_Serif({
 //   weight: ["400"],
