@@ -21,7 +21,7 @@ const DATA = [
 
 export default function Clients({ className = "" }) {
   return (
-    <section className={`relative mx-5 mt-32 ${className}`}>
+    <section className={`relative mx-5 mt-32 lg:mt-64 ${className}`}>
       <h1 className="top-0 mb-12 text-xl font-semibold tracking-tight lg:grid w-fit aspect-square lg:absolute lg:mb-0">
         <span className="flex flex-col">
           <span>SELECTED </span>

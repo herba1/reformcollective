@@ -4,6 +4,14 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Button from "./Button";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+} from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,7 +66,7 @@ export default function Story() {
           "<"
         );
 
-      tl.set('.line__middle',{display:'none'})
+      tl.set(".line__middle", { display: "none" })
         .from(".line__main", {
           scaleX: 0,
           duration: 1,
@@ -77,9 +85,9 @@ export default function Story() {
         // .set(".line__middle", { scale: 1 })
         .fromTo(
           ".line__lt",
-          { rotate: 90, display:'block' },
+          { rotate: 90, display: "block" },
           {
-            display:'block',
+            display: "block",
             rotate: 160,
             duration: 1,
             ease: "power3.out",
@@ -88,9 +96,9 @@ export default function Story() {
         )
         .fromTo(
           ".line__lb",
-          { rotate: 90, scaleX: 1, display:'block' },
+          { rotate: 90, scaleX: 1, display: "block" },
           {
-            display:'block',
+            display: "block",
             rotate: 130,
             duration: 1,
             ease: "power3.out",
@@ -98,22 +106,22 @@ export default function Story() {
           "<+=0.1"
         )
         .fromTo(
-          ".line__rb",
-          { rotate: 90, scaleX: 1, display:'block' },
+          ".line__rt",
+          { rotate: 90, display: "block" },
           {
-            display:'block',
-            rotate: 50,
+            display: "block",
+            rotate: 20,
             duration: 1,
             ease: "power3.out",
           },
           "<+=0.1"
         )
         .fromTo(
-          ".line__rt",
-          { rotate: 90, display:'block',},
+          ".line__rb",
+          { rotate: 90, scaleX: 1, display: "block" },
           {
-            display:'block',
-            rotate: 20,
+            display: "block",
+            rotate: 50,
             duration: 1,
             ease: "power3.out",
           },
@@ -122,7 +130,7 @@ export default function Story() {
         .from(
           ".line__text",
           {
-            yPercent: 50,
+            yPercent: 100,
             opacity: 0,
             duration: 1,
             ease: "power3.inOut",
@@ -134,8 +142,8 @@ export default function Story() {
   );
 
   return (
-    <section ref={container} className="mx-5 mt-32 md:mx-auto md:w-[45vw]">
-      <div className="decoration">
+    <section ref={container} className="mx-5 mt-64">
+      <div className="decoration md:mx-auto md:w-[45vw]">
         <p className="flex items-end justify-between tracking-tighter">
           <span className="text__l md:text-[3vw]">THE</span>
           <span
@@ -146,18 +154,84 @@ export default function Story() {
           <span className="text__r md:text-[3vw]">CLUB</span>
         </p>
       </div>
-      <div className="lines relative mt-5">
+      <div className="lines relative mt-5 md:mx-auto md:w-[45vw]">
         <div className="line line__main h-0.5 origin-center bg-black"></div>
         <div className="line line__middle line__rt absolute top-0 left-1/2 h-0.5 w-4/10 origin-left rotate-20 bg-black"></div>
         <div className="line line__middle line__rb absolute top-0 left-1/2 h-0.5 w-4/10 origin-left rotate-50 bg-black"></div>
         <div className="line line__down absolute top-0 left-1/2 h-0.5 w-4/10 origin-left rotate-90 bg-black"></div>
         <div className="line line__middle line__lb absolute top-0 left-1/2 h-0.5 w-4/10 origin-left rotate-130 bg-black"></div>
         <div className="line line__middle line__lt absolute top-0 left-1/2 h-0.5 w-4/10 origin-left rotate-160 bg-black"></div>
-        <p className="flex justify-between text-sm">
+        <p className="mt-2 flex justify-between text-sm">
           <span className={`line__text ${pixelify.className}`}>PINKIES UP</span>
           <span className={`line__text ${pixelify.className}`}>EST. 2015</span>
         </p>
       </div>
+      <div className="relative mt-64 grid-cols-2 items-start md:mt-[25vw] md:grid md:gap-10">
+        <div
+          aria-hidden
+          className="absolute left-1/2 mt-5 hidden h-0.5 w-12 -translate-x-full bg-black md:block"
+        >
+          <div className="relative w-full">
+            <ChevronRight className="absolute top-0 left-full -translate-x-11/20 -translate-y-9/20 scale-70" />
+            <ChevronLeft className="absolute top-0 left-0 -translate-x-9/20 -translate-y-9/20 scale-70" />
+          </div>
+        </div>
+        <div aria-hidden className="absolute h-full w-0.5 bg-black md:hidden">
+          <div className="relative h-full -translate-x-0">
+            <ChevronDown className="absolute bottom-0 left-0 -translate-x-9/20 translate-y-4/10 scale-70" />
+            <ChevronUp className="absolute top-0 left-0 -translate-x-9/20 -translate-y-4/10 scale-70" />
+          </div>
+        </div>
+        <Article
+          className="ml-5 md:ml-0"
+          title={DATA[0].title}
+          text={DATA[0].text}
+        ></Article>
+        <Article
+          className="mt-16 ml-5 md:mt-0 md:ml-0"
+          title={DATA[1].title}
+          text={DATA[1].text}
+        ></Article>
+      </div>
+      <Button className="mt-12 w-full max-w-sm">
+        <span className="flex w-full items-center justify-around text-xl">
+          LEARN MORE ABOUT US <ArrowUpRight />
+        </span>
+      </Button>
     </section>
   );
 }
+
+type ArticleProps = {
+  className?: string;
+  title: string;
+  text: string;
+};
+
+function Article({ className, title, text }: ArticleProps) {
+  return (
+    <article className={` ${className}`}>
+      <h1
+        className={`tracking-tight ${instrumentSerif.className} text-5xl lg:text-[clamp(64px,3.2vw,128px)]`}
+      >
+        {title}
+      </h1>
+      <p
+        className={`mt-5 text-lg tracking-tighter md:mt-15 lg:max-w-7/10 lg:text-xl`}
+      >
+        {text}
+      </p>
+    </article>
+  );
+}
+
+const DATA = [
+  {
+    title: "Your business has a story.",
+    text: "Not just a pitch, not just a product...there’s a reason you do what you do. It’s the late nights, the wild ideas, the belief that this thing you’re building actually matters. That’s the story people will connect with. That’s the story worth telling. It’s the story we can craft for you.",
+  },
+  {
+    title: "We design and build to tell it.",
+    text: "A great story deserves more than a place to live. A story needs a way to move. We design brands, craft interfaces, and build digital experiences that don’t just inform but pull people in. Every detail, every interaction, every pixel works to make your story impossible to ignore.",
+  },
+];

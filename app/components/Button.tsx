@@ -41,7 +41,7 @@ export default function Button({
       });
       outlines?.forEach((e) => {
         gsap.set(e, {
-          scale: 0.99,
+          scale: 1,
         });
       });
 
