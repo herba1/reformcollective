@@ -6,6 +6,8 @@ import ProjectCard from "./components/ProjectCard";
 import Projects, { ProjectTransition } from "./components/Projects";
 import Awards from "./components/Awards";
 import Experience from "./components/Experience";
+import Clients from "./components/Clients";
+import Story from "./components/Story";
 
 // const instrumentSerif = Instrument_Serif({
 //   weight: ["400"],
@@ -26,6 +28,8 @@ export default function Home() {
         <Projects />
         <ProjectTransition/>
         <Awards/>
+        <Clients/>
+        <Story/>
         <div className="h-[2000px]"></div>
       </div>
     </main>
