@@ -137,7 +137,7 @@ export default function ProjectCard({
         >
           <h2 className="text-xl font-bold">{title}</h2>
           <h3
-            className={` max-w-[63%] w-full h-fit text-xl leading-[1.20] ${ subtitle?.length && subtitle?.length < 30?'whitespace-nowrap':''} ${variant === "compact" ? "md:hidden" : ""}`}
+            className={` max-w-[69%] w-full h-fit text-xl leading-[1.20] ${ subtitle?.length && subtitle?.length < 30?'whitespace-nowrap':''} ${variant === "compact" ? "md:hidden" : ""}`}
           >
             {subtitle}
           </h3>

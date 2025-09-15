@@ -6,10 +6,7 @@ import Observer from "gsap/Observer";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import SplitText from "gsap/SplitText";
-import { useState } from "react";
 import Button from "./Button";
-import { useNav } from "../context/NavContext";
-import Image from "next/image";
 gsap.registerPlugin(SplitText, Observer);
 
 const inter = Inter({
@@ -25,6 +22,7 @@ export default function Hero({ className = "" }) {
   const cursorRef = useRef({ x: 0, y: 0 });
   const cursorItem = useRef<HTMLDivElement>(null);
 
+  // general anim
   useGSAP(
     () => {
       const scrollSplit0 = SplitText.create(".scrollSplit0", {
@@ -59,6 +57,14 @@ export default function Hero({ className = "" }) {
           delay: 1,
           yPercent: -100,
         });
+
+        gsap.from('.hero__marquee',{
+          yPercent:100,
+          delay:1,
+          duration:1.5,
+          ease:'power4.out',
+        })
+
       return () => {
         scrollSplit0.revert();
         scrollSplit1.revert();
@@ -69,7 +75,6 @@ export default function Hero({ className = "" }) {
   );
 
   // cursor anim
-
   useGSAP(
     () => {
       gsap.set(cursorItem.current, {
@@ -141,12 +146,13 @@ export default function Hero({ className = "" }) {
             </Button>
           </div>
           <video
-            src={"/vid5.mp4"}
             className="absolute top-0 left-0 z-0 h-full w-full object-cover contrast-80 saturate-150"
             loop={false}
             autoPlay
             controls={false}
-          ></video>
+            src={'vid.mp4'}
+          >
+          </video>
           {/* <Image
             src={"/hero2.png"}
             height={2000}

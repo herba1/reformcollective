@@ -137,6 +137,36 @@ export default function Story() {
           },
           "-=0.4"
         );
+
+      const articleTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".lines",
+          start: "top bottom",
+          end: "top bottom",
+          toggleActions: "play none none reset",
+        },
+        delay:0.3,
+      });
+
+      articleTl
+        .from([".article", ".button"], {
+          yPercent: 25,
+          opacity: 0,
+          duration: 1.2,
+          stagger: 0.05,
+          ease: "power3.inOut",
+        })
+        .from(
+          ".arrow",
+          {
+            scaleX: 0,
+            opacity: 0,
+            duration: 2,
+            stagger: 0.05,
+            ease: "power4.inOut",
+          },
+          ""
+        );
     },
     { scope: container, dependencies: [] }
   );
@@ -166,10 +196,10 @@ export default function Story() {
           <span className={`line__text ${pixelify.className}`}>EST. 2015</span>
         </p>
       </div>
-      <div className="relative mt-64 grid-cols-2 items-start md:mt-[25vw] md:grid md:gap-10">
+      <div className="relative mt-64 grid-cols-2 items-start md:mt-[25vw] md:grid md:gap-10 xl:mx-auto xl:max-w-[1670px] xl:grid-cols-8 xl:gap-5">
         <div
           aria-hidden
-          className="absolute left-1/2 mt-5 hidden h-0.5 w-12 -translate-x-full bg-black md:block"
+          className="arrow absolute left-1/2 mt-5 hidden h-0.5 w-12 -translate-x-full bg-black md:block xl:left-1/2"
         >
           <div className="relative w-full">
             <ChevronRight className="absolute top-0 left-full -translate-x-11/20 -translate-y-9/20 scale-70" />
@@ -183,21 +213,23 @@ export default function Story() {
           </div>
         </div>
         <Article
-          className="ml-5 md:ml-0"
+          className="article ml-5 md:ml-0 xl:col-span-3 xl:col-start-2"
           title={DATA[0].title}
           text={DATA[0].text}
         ></Article>
         <Article
-          className="mt-16 ml-5 md:mt-0 md:ml-0"
+          className="article mt-16 ml-5 md:mt-0 md:ml-0 xl:col-span-3 xl:col-start-5"
           title={DATA[1].title}
           text={DATA[1].text}
         ></Article>
       </div>
-      <Button className="mt-12 w-full max-w-sm">
-        <span className="flex w-full items-center justify-around text-xl">
-          LEARN MORE ABOUT US <ArrowUpRight />
-        </span>
-      </Button>
+      <div className="button mt-12 w-full grid-cols-8 gap-5 xl:mx-auto xl:mt-18 xl:grid xl:max-w-[1670px]">
+        <Button className="col-span-3 col-start-2 w-full md:max-w-sm">
+          <span className="flex w-full items-center justify-around text-xl">
+            LEARN MORE ABOUT US <ArrowUpRight />
+          </span>
+        </Button>
+      </div>
     </section>
   );
 }
@@ -212,7 +244,7 @@ function Article({ className, title, text }: ArticleProps) {
   return (
     <article className={` ${className}`}>
       <h1
-        className={`tracking-tight ${instrumentSerif.className} text-5xl lg:text-[clamp(64px,3.2vw,128px)]`}
+        className={`tracking-tight ${instrumentSerif.className} text-5xl lg:text-[clamp(64px,3.5vw,68px)]`}
       >
         {title}
       </h1>

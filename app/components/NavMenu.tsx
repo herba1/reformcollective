@@ -79,7 +79,8 @@ export default function NavMenu({
           className=" sm:hidden col-span-full "
           
         >
-          <span className="flex justify-center items-center w-fit">
+          <span className="flex justify-between items-center w-full">
+            <span></span>
             <span className={`text-xl font-bold`}>LET`S CHAT</span>
             <ArrowUpRight />
           </span>
@@ -102,7 +103,7 @@ export default function NavMenu({
           btnClassName="bg-red-600"
           className="col-span-full hidden touch-manipulation grid-cols-2 sm:flex"
         >
-          <span className="flex">
+          <span className="flex w-full justify-between">
             <span className={`w-full text-xl font-bold`}>LET`S CHAT</span>
             <ArrowUpRight />
           </span>

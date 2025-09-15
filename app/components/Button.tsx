@@ -41,7 +41,7 @@ export default function Button({
       });
       outlines?.forEach((e) => {
         gsap.set(e, {
-          scale: 1,
+          scale: 0.99,
         });
       });
 
@@ -82,7 +82,7 @@ export default function Button({
             cords.current.y = ((e.y - (top + height / 2)) / height) * 2;
           }
           gsap.to(mainElement.current, {
-            ease: "power2.out",
+            ease: "power4.out",
             duration: 2,
             x: cords.current.x * -4,
             y: cords.current.y * -4,
@@ -90,7 +90,7 @@ export default function Button({
 
           outlines?.forEach((outline, index) => {
             gsap.to(outline, {
-              ease: "power2.out",
+              ease: "power4.out",
               duration: 2,
               y: cords.current.y * index * 3,
               x: cords.current.x * index * 3,
@@ -112,7 +112,7 @@ export default function Button({
     >
       <div
         ref={mainElement}
-        className={`button__main place-content-stretch  relative top-0 left-0 z-40 grid h-full w-full cursor-pointer grid-cols-1 grid-rows-1 rounded-full bg-black px-8 py-8 leading-none font-semibold tracking-tight text-amber-50 ${btnClassName}`}
+        className={`button__main relative top-0 left-0 z-40 grid h-full w-full cursor-pointer grid-cols-1 grid-rows-1 place-content-stretch rounded-full bg-black px-8 py-8 leading-none font-semibold tracking-tight text-amber-50 ${btnClassName}`}
         onMouseEnter={() => (hoverRef.current = true)}
         onMouseLeave={() => (hoverRef.current = false)}
       >
