@@ -11,14 +11,14 @@ const pixelifySans = Pixelify_Sans({
 });
 
 const DATA = {
-  socials: [
+  links: [
     { key: 1, title: "OUR WORK", href: "#" },
     { key: 2, title: "ABOUT US", href: "#" },
     { key: 3, title: "REFORM NOVA", href: "#" },
     { key: 4, title: "CONTACT US", href: "#" },
     { key: 5, title: "CAREERS", href: "#" },
   ],
-  links: [
+  socials: [
     { title: "LINKEDIN", key: 1, href: "#" },
     { title: "INSTAGRAM", key: 2, href: "#" },
     { title: "AWWWARDS", key: 3, href: "#" },
@@ -29,13 +29,13 @@ const DATA = {
 export default function Footer() {
   return (
     <footer className="mt-32 bg-amber-50">
-      <div className="mx-5 grid lg:grid-cols-12 lg:gap-5 grid-cols-2 gap-y-2">
-        <a href="#" className="col-span-2 row-start-1 ">
+      <div className="mx-5 grid lg:grid-cols-12 lg:gap-5 lg:items-end lg:justify-start grid-cols-2 gap-y-2">
+        <a href="#" className="col-span-2 row-start-1 lg:col-span-1 ">
           <SquareAsterisk size={52} />
         </a>
 
-        <ul className="col-span-2 row-start-2 flex flex-col">
-          {DATA.socials.map((e, i) => {
+        <ul className="col-span-2 row-start-2 flex lg:col-start-1  flex-col">
+          {DATA.links.map((e, i) => {
             return (
               <li key={i}>
                 <a href="#" className="leading-none tracking-tighter">{e.title}</a>
@@ -44,11 +44,11 @@ export default function Footer() {
           })}
         </ul>
 
-        <ul className="row-span-2 self-end row-start-3 flex flex-col pb-2 gap-1.5">
-          {DATA.links.map((e, i) => {
+        <ul className="row-span-2 self-end row-start-3 lg:row-start-2 lg:col-start-12 lg:col-span-1 lg:row-span-1 flex flex-col lg:pb-0 pb-2 gap-1.5">
+          {DATA.socials.map((e, i) => {
             return (
               <li
-                className={`text-xs leading-none ${pixelifySans.className}`}
+                className={`text-xs leading-none lg:text-right ${pixelifySans.className}`}
                 key={i}
               >
                 <a href="#">{e.title}</a>
@@ -57,18 +57,18 @@ export default function Footer() {
           })}
         </ul>
 
-        <div className="col-span-1 flex -ml-[5vw] flex-col leading-snug tracking-tighter">
-          <span>READY TO BUILD</span>
-          <span>SOMETHING WITH US?</span>
+        <div className="col-span-1 flex -ml-[5vw] lg:leading-none lg:-ml-[0vw] flex-col lg:col-span-4 lg:row-start-2 lg:flex-row lg:col-start-3 lg:gap-1 lg:text-[1.7vw] lg:font-medium leading-snug tracking-tighter">
+          <span>Ready to build</span>
+          <span>something with us?</span>
         </div>
 
         <NavLinks
-          className="col-span-1 -ml-[5vw]"
-          textClassName=" text-[13vw]"
+          className="col-span-1 -ml-[5vw] lg:-ml-[7vw] lg:-mb-[0.8vw] lg:col-span-4 lg:col-start-7 lg:row-start-2"
+          textClassName=" text-[13vw] lg:text-[7.2vw]  "
           item={{ title: "Lets Chat", subtitle: ``, href: "" }}
         />
 
-        <div className="col-span-2">
+        <div className="col-span-2 lg:col-span-full lg:row-start-3">
           <Image
             src={"/reformlogo.svg"}
             alt="ReformCollective Logo"
