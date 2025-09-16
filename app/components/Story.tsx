@@ -140,33 +140,29 @@ export default function Story() {
 
       const articleTl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".lines",
+          trigger: ".articles",
           start: "top bottom",
           end: "top bottom",
           toggleActions: "play none none reset",
         },
-        delay:0.3,
+        delay: 0.2,
       });
 
       articleTl
         .from([".article", ".button"], {
-          yPercent: 25,
+          yPercent: 35,
           opacity: 0,
           duration: 1.2,
-          stagger: 0.05,
-          ease: "power3.inOut",
+          stagger: 0.1,
+          ease: "power3.Out",
         })
-        .from(
-          ".arrow",
-          {
-            scaleX: 0,
-            opacity: 0,
-            duration: 2,
-            stagger: 0.05,
-            ease: "power4.inOut",
-          },
-          ""
-        );
+        .from(".arrow", {
+          scaleX: 0,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.05,
+          ease: "power4.out",
+        });
     },
     { scope: container, dependencies: [] }
   );
@@ -196,10 +192,10 @@ export default function Story() {
           <span className={`line__text ${pixelify.className}`}>EST. 2015</span>
         </p>
       </div>
-      <div className="relative mt-64 grid-cols-2 items-start md:mt-[25vw] md:grid md:gap-10 xl:mx-auto xl:max-w-[1670px] xl:grid-cols-8 xl:gap-5">
+      <div className="articles relative mt-64 grid-cols-2 items-start md:mt-[25vw] md:grid md:gap-10 xl:mx-auto xl:max-w-[1670px] xl:grid-cols-8 xl:gap-5">
         <div
           aria-hidden
-          className="arrow absolute left-1/2 mt-5 hidden h-0.5 w-12 -translate-x-full bg-black md:block xl:left-1/2"
+          className="arrow absolute left-1/2 mt-5 hidden h-0.5 w-12 -translate-x-full bg-black md:block xl:left-[48vw]"
         >
           <div className="relative w-full">
             <ChevronRight className="absolute top-0 left-full -translate-x-11/20 -translate-y-9/20 scale-70" />
@@ -224,7 +220,10 @@ export default function Story() {
         ></Article>
       </div>
       <div className="button mt-12 w-full grid-cols-8 gap-5 xl:mx-auto xl:mt-18 xl:grid xl:max-w-[1670px]">
-        <Button className="col-span-3 col-start-2 w-full md:max-w-sm">
+        <Button
+          btnClassName="md:py-12"
+          className="col-span-3 col-start-2 w-full md:max-w-sm"
+        >
           <span className="flex w-full items-center justify-around text-xl">
             LEARN MORE ABOUT US <ArrowUpRight />
           </span>
@@ -244,7 +243,7 @@ function Article({ className, title, text }: ArticleProps) {
   return (
     <article className={` ${className}`}>
       <h1
-        className={`tracking-tight ${instrumentSerif.className} text-5xl lg:text-[clamp(64px,3.5vw,68px)]`}
+        className={`tracking-tight ${instrumentSerif.className} text-5xl lg:text-[clamp(42px,3.8vw,68px)]`}
       >
         {title}
       </h1>

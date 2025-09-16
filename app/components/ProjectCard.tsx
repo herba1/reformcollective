@@ -70,8 +70,8 @@ export default function ProjectCard({
             cords.current.x = (e.x - (left + width / 2)) / width;
             cords.current.y = (e.y - (top + height / 2)) / height;
           }
-          xTo(cords.current.x * 15);
-          yTo(cords.current.y * 15);
+          xTo(cords.current.x * 20);
+          yTo(cords.current.y * 20);
         },
         onHoverEnd: () => {
           setTimeout(() => {
@@ -130,14 +130,14 @@ export default function ProjectCard({
           alt="img"
         ></Image>
       </div>
-      <div className="mt-1 mb-4 flex h-fit flex-col flex-wrap justify-between gap-4 md:mt-4 lg:items-center lg:flex-row ">
+      <div className="mt-1 mb-4 flex h-fit flex-col flex-wrap justify-between gap-4 md:mt-4 lg:flex-row lg:items-center">
         <section
           ref={titleRef}
           className="h-fit gap-2 leading-none tracking-tighter text-amber-50 sm:flex"
         >
           <h2 className="text-xl font-bold">{title}</h2>
           <h3
-            className={` max-w-[69%] w-full h-fit text-xl leading-[1.20] ${ subtitle?.length && subtitle?.length < 30?'whitespace-nowrap':''} ${variant === "compact" ? "md:hidden" : ""}`}
+            className={`h-fit w-full max-w-[80%] text-xl leading-[1.20] ${subtitle?.length && subtitle?.length < 30 ? "whitespace-nowrap" : ""} ${variant === "compact" ? "md:hidden" : ""}`}
           >
             {subtitle}
           </h3>

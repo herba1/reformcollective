@@ -51,7 +51,7 @@ export default function NavMenu({
   useLayoutEffect(() => {
     if (container.current)
       item.setMenuHeight(container.current.offsetHeight.toString());
-  }, );
+  });
 
   useLayoutEffect(() => {
     if (!container.current) return;
@@ -73,18 +73,17 @@ export default function NavMenu({
           <NavLinks item={item} key={index} />
         ))}
       </ul>
-{/*  */}
-        <Button
-          btnClassName="bg-red-600 grid place-items-center "
-          className=" sm:hidden col-span-full "
-          
-        >
-          <span className="flex justify-between items-center w-full">
-            <span></span>
-            <span className={`text-xl font-bold`}>LET`S CHAT</span>
-            <ArrowUpRight />
-          </span>
-        </Button>
+
+      <Button
+        btnClassName="bg-red-600 grid place-items-center "
+        className="col-span-full sm:hidden"
+      >
+        <span className="flex w-full items-center justify-between">
+          <span></span>
+          <span className={`text-xl font-bold`}>LET`S CHAT</span>
+          <ArrowUpRight />
+        </span>
+      </Button>
 
       <ul className="col-span-full flex w-full flex-col justify-between gap-2 sm:flex-row sm:items-end">
         {menuFooter.map((e, i) => {
@@ -113,7 +112,17 @@ export default function NavMenu({
   );
 }
 
-function NavLinks({ item }: { item: MenuItem }) {
+export function NavLinks({
+  item,
+  variant = "default",
+  className = "",
+  textClassName = "",
+}: {
+  item: MenuItem;
+  variant?: "default" | "compact";
+  className?: string;
+  textClassName?: string;
+}) {
   const container = useRef<HTMLLIElement>(null);
   const tl = useRef<GSAPTimeline>(null);
   const tl2 = useRef<GSAPTimeline>(null);
@@ -174,19 +183,19 @@ function NavLinks({ item }: { item: MenuItem }) {
         setHover(false);
       }}
       ref={container}
-      className="grid w-fit overflow-x-clip"
+      className={`grid w-fit overflow-x-clip ${className}`}
     >
       <a href={item.href}>
         <span className="flex gap-2">
           <h1
-            className={`${instrumentSerif.className} title text-6xl text-nowrap sm:text-[clamp(3.75rem,8vw,8rem)]`}
+            className={`${instrumentSerif.className} title text-6xl text-nowrap sm:text-[clamp(3.75rem,8vw,8rem)] ${textClassName}`}
           >
             {item.title}
           </h1>
           <ArrowRight className="arrow" size={28} />
         </span>
         <p
-          className={`${pixelifySans.className} subtitle col-span-2 text-sm text-orange-400`}
+          className={`${pixelifySans.className} subtitle col-span-2 text-sm text-orange-400 ${variant === "compact" ? "hidden" : ""}`}
         >
           {item.subtitle}
         </p>

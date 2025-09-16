@@ -1,5 +1,5 @@
 "use client";
-import { Menu, Minus, Smile } from "lucide-react";
+import { Menu, Minus, Smile, SquareAsterisk } from "lucide-react";
 import { useNav } from "../context/NavContext";
 import NavTypewriter from "./NavTypewriter";
 import gsap from "gsap";
@@ -181,7 +181,7 @@ export default function NavHeader({
       className={`flex h-18 items-center justify-between bg-black px-4 py-4 ${className}`}
       {...props}
     >
-      <Smile size={32} className="text-amber-50" />
+      <SquareAsterisk size={32} className="text-amber-50" />
       <NavTypewriter />
       <MenuButton />
     </header>

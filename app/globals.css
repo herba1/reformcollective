@@ -5,6 +5,10 @@
     animation: animate-marquee 8s linear infinite;
 }
 
+.animate-marquee-slow{
+    animation: animate-marquee 30s linear infinite;
+}
+
 @keyframes animate-marquee{
     from{
         transform: translateX(0%);

@@ -8,6 +8,9 @@ import Awards from "./components/Awards";
 import Experience from "./components/Experience";
 import Clients from "./components/Clients";
 import Story from "./components/Story";
+import ReformNovaLogo from "./components/ReformNovaLogo";
+import ReformNova from "./components/ReformNova";
+import Footer from "./components/Footer";
 
 // const instrumentSerif = Instrument_Serif({
 //   weight: ["400"],
@@ -24,13 +27,14 @@ export default function Home() {
         id="main__content"
         className={`main__content grid origin-bottom overflow-clip bg-amber-50 font-sans`}
       >
-        <Hero className=" mb-12 md:mb-24" />
+        <Hero className="mb-12 md:mb-24" />
         <Projects />
-        <ProjectTransition/>
-        <Awards/>
-        <Clients/>
-        <Story/>
-        <div className="h-[2000px]"></div>
+        <ProjectTransition />
+        <Awards />
+        <Clients />
+        <Story />
+        <ReformNova/>
+        <Footer/>
       </div>
     </main>
   );

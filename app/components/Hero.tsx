@@ -1,5 +1,5 @@
 "use client";
-import { ArrowUpRight, SquareChevronDown, X, XOctagon } from "lucide-react";
+import { ArrowUpRight, SquareChevronDown } from "lucide-react";
 import { Inter, Pixelify_Sans } from "next/font/google";
 import gsap from "gsap";
 import Observer from "gsap/Observer";
@@ -58,12 +58,12 @@ export default function Hero({ className = "" }) {
           yPercent: -100,
         });
 
-        gsap.from('.hero__marquee',{
-          yPercent:100,
-          delay:1,
-          duration:1.5,
-          ease:'power4.out',
-        })
+      gsap.from(".hero__marquee", {
+        yPercent: 100,
+        delay: 1,
+        duration: 1.5,
+        ease: "power4.out",
+      });
 
       return () => {
         scrollSplit0.revert();
@@ -88,7 +88,7 @@ export default function Hero({ className = "" }) {
       Observer.create({
         target: ".hero__main",
         ignore: cursorItem.current,
-        onHoverEnd: (e) => {
+        onHoverEnd: () => {
           gsap.to(cursorItem.current, {
             pointerEvents: "none",
             scale: 0.5,
@@ -96,7 +96,7 @@ export default function Hero({ className = "" }) {
             ease: "power4.out",
           });
         },
-        onHover: (e) => {
+        onHover: () => {
           gsap.to(cursorItem.current, {
             scale: 1,
             opacity: 1,
@@ -150,9 +150,8 @@ export default function Hero({ className = "" }) {
             loop={false}
             autoPlay
             controls={false}
-            src={'vid.mp4'}
-          >
-          </video>
+            src={"vid.mp4"}
+          ></video>
           {/* <Image
             src={"/hero2.png"}
             height={2000}
