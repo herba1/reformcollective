@@ -57,8 +57,8 @@ export default function Button({
             immediateRender: true,
             ease: "power2.out",
             duration: 1,
-            x: cords.current.x,
-            y: cords.current.y,
+            xPercent: cords.current.x,
+            yPercent: cords.current.y,
           });
           outlines?.forEach((outline) => {
             gsap.to(outline, {
@@ -66,8 +66,8 @@ export default function Button({
               overwrite: true,
               duration: 1,
               ease: "power2.out",
-              y: 0,
-              x: 0,
+              yPercent: 0,
+              xPercent: 0,
             });
           });
         },
@@ -84,16 +84,16 @@ export default function Button({
           gsap.to(mainElement.current, {
             ease: "power4.out",
             duration: 2,
-            x: cords.current.x * -4,
-            y: cords.current.y * -4,
+            xPercent: cords.current.x * -2,
+            yPercent: cords.current.y * -2,
           });
 
           outlines?.forEach((outline, index) => {
             gsap.to(outline, {
               ease: "power4.out",
               duration: 2,
-              y: cords.current.y * index * 3,
-              x: cords.current.x * index * 3,
+              yPercent: cords.current.y * index * 2.5,
+              xPercent: cords.current.x * index * 1.5,
             });
           });
         },

@@ -39,8 +39,8 @@ export default function Awards() {
     >
       <Experience />
       <CursorInvert hover={hover} className="pointer-events-none select-none" />
-      <article className="z-10 mx-5 my-auto grid-cols-12 md:mx-auto md:grid md:max-w-[80vw] md:gap-6 lg:max-w-[50vw]">
-        <h2 className={`col-span-full flex flex-col leading-none`}>
+      <article className="z-10 pointer-events-none mx-5 my-auto grid-cols-12 md:mx-auto md:grid md:max-w-[80vw] md:gap-6 lg:max-w-[50vw]">
+        <h2 className={` col-span-full flex flex-col leading-none`}>
           <span
             className={` ${instrumentSerif.className} text-6xl md:text-9xl`}
           >
@@ -66,7 +66,7 @@ export default function Awards() {
             <div>
               <a
                 href="#"
-                className="flex w-fit items-center border-b-2 text-lg font-semibold tracking-tighter"
+                className="flex w-fit isolate pointer-events-auto items-center border-b-2 text-lg font-semibold tracking-tighter"
               >
                 WEBBY AWARD WINNER <ArrowUpRight />
               </a>

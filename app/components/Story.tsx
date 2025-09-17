@@ -195,7 +195,7 @@ export default function Story() {
       <div className="articles relative mt-64 grid-cols-2 items-start md:mt-[25vw] md:grid md:gap-10 xl:mx-auto xl:max-w-[1670px] xl:grid-cols-8 xl:gap-5">
         <div
           aria-hidden
-          className="arrow absolute left-1/2 mt-5 hidden h-0.5 w-12 -translate-x-full bg-black md:block xl:left-[48vw]"
+          className="arrow absolute left-1/2 mt-5 hidden h-0.5 w-12 -translate-x-full bg-black md:block "
         >
           <div className="relative w-full">
             <ChevronRight className="absolute top-0 left-full -translate-x-11/20 -translate-y-9/20 scale-70" />

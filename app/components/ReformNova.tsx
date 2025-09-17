@@ -49,7 +49,7 @@ export default function ReformNova() {
         </div>
       </div>
       <div className="relative z-30 grid-cols-12 gap-5 md:grid">
-        <div className="col-span-full col-start-3 mx-5 mt-16 text-amber-50 md:mx-0 md:mt-32">
+        <div className="col-span-full col-start-3 mx-5 mt-16 text-amber-50 md:mx-0 md:mt-[9vw]">
           <h1
             className={`flex flex-col text-4xl leading-none md:text-5xl ${instrumentSerif.className}`}
           >
@@ -70,7 +70,7 @@ export default function ReformNova() {
           >
             LEARN MORE <ArrowUpRight></ArrowUpRight>
           </a>
-          <div className="relative mt-120 mb-24 border-t-2 md:mt-60">
+          <div className="relative mt-120 mb-24 border-t-2  md:mt-[16vw]">
             <ReformNovaLogo className="absolute -right-10 bottom-full z-0 h-[75vw] translate-y-2/20 select-none md:-right-[6vw] md:h-[40vw]" />
             <div className="mt-4 flex justify-end md:mt-0 md:justify-start">
               <Image

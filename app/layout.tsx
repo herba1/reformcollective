@@ -9,6 +9,7 @@ import { useRef } from "react";
 import { GSDevTools } from "gsap/GSDevTools";
 import { useNav, NavProvider } from "./context/NavContext";
 import { ReactLenis } from "lenis/react";
+import Loader from "./components/Loader";
 
 gsap.registerPlugin(GSDevTools);
 
@@ -38,6 +39,7 @@ export default function RootLayout({
             ref={container}
             className={`antialiased bg-black grid grid-cols-4 relative root-layout ${inter.className}`}
           >
+            {/* <Loader></Loader> */}
             <NavProvider>
               <NavHeader className="sticky z-50 col-span-full top-0 h-16" />
               <NavMenu className="sticky z-0 top-16 col-span-full" />

@@ -45,11 +45,11 @@ export default function ProjectCard({
   useGSAP(
     () => {
       // GSAP animations go here
-      const xTo = gsap.quickTo(imageRef.current, "x", {
+      const xTo = gsap.quickTo(imageRef.current, "xPercent", {
         duration: 1,
         ease: "power4.out",
       });
-      const yTo = gsap.quickTo(imageRef.current, "y", {
+      const yTo = gsap.quickTo(imageRef.current, "yPercent", {
         duration: 1,
         ease: "power4.out",
       });
@@ -70,8 +70,8 @@ export default function ProjectCard({
             cords.current.x = (e.x - (left + width / 2)) / width;
             cords.current.y = (e.y - (top + height / 2)) / height;
           }
-          xTo(cords.current.x * 20);
-          yTo(cords.current.y * 20);
+          xTo(cords.current.x * 4);
+          yTo(cords.current.y * 4);
         },
         onHoverEnd: () => {
           setTimeout(() => {
