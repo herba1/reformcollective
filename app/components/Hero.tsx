@@ -150,23 +150,16 @@ export default function Hero({ className = "" }) {
             loop={false}
             autoPlay
             controls={false}
-            src={"vid.mp4"}
+            src={"eye.mp4"}
           ></video>
-          {/* <Image
-            src={"/hero2.png"}
-            height={2000}
-            width={2000}
-            alt="none"
-            className="absolute top-0 left-0 z-0 h-full w-full object-cover contrast-80 saturate-150"
-          ></Image> */}
           <div className="hero__marquee pointer-events-none z-10 w-full self-end overflow-hidden">
             <p
               className={`animate-marquee flex w-max items-stretch self-end text-[20vw] leading-none tracking-tighter text-nowrap text-black lg:text-[15vw] ${inter.className}`}
             >
-              REFORM CO
+              <span>REFORM CO</span>
               <span className="text-[5vw]">©</span>
               <span className="mx-6 flex aspect-square h-full w-[15vw] items-center justify-center self-center rounded-md bg-red-500 text-transparent lg:w-[13vw]"></span>
-              REFORM CO
+              <span>REFORM CO</span>
               <span className="text-[5vw]">©</span>
               <span className="mx-6 flex aspect-square h-full w-[15vw] items-center justify-center self-center rounded-md bg-red-500 text-transparent lg:w-[13vw]"></span>
             </p>
