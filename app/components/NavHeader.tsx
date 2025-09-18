@@ -1,5 +1,5 @@
 "use client";
-import { Menu, Minus, Smile, SquareAsterisk } from "lucide-react";
+import { Menu, Minus, SquareAsterisk } from "lucide-react";
 import { useNav } from "../context/NavContext";
 import NavTypewriter from "./NavTypewriter";
 import gsap from "gsap";
@@ -143,14 +143,14 @@ export default function NavHeader({
 }) {
   const container = useRef<HTMLHeadElement>(null);
   const isOpenRef = useRef(false);
-  const { isOpen, reverseComplete} = useNav();
+  const { isOpen, reverseComplete } = useNav();
   const tl = useRef<GSAPTimeline>(null);
   useGSAP(
     () => {
       isOpenRef.current = isOpen;
 
       const observer = Observer.create({
-        type:'scroll',
+        type: "scroll",
         onDown: (e) => {
           if (!isOpenRef.current && reverseComplete.current) {
             gsap.to(container.current, {

@@ -248,7 +248,7 @@ function Article({ className, title, text }: ArticleProps) {
         {title}
       </h1>
       <p
-        className={`mt-5 text-lg tracking-tighter md:mt-15 lg:max-w-7/10 lg:text-xl`}
+        className={`mt-5 text-lg tracking-tighter md:mt-15 lg:max-w-8/10 lg:text-xl`}
       >
         {text}
       </p>

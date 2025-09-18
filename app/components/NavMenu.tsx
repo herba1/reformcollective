@@ -21,9 +21,9 @@ const pixelifySans = Pixelify_Sans({
 });
 
 const menuItems = [
-  { title: "Our Work", subtitle: "This is some subtext", href: "#" },
-  { title: "About Us", subtitle: "What we can do for you", href: "#" },
-  { title: "Reform Nova", subtitle: "Learn more about us", href: "#" },
+  { title: "Our Work", subtitle: "This is some subtext", href: "/" },
+  { title: "About Us", subtitle: "What we can do for you", href: "/" },
+  { title: "Reform Nova", subtitle: "Learn more about us", href: "/" },
 ];
 
 type MenuItem = {
@@ -33,11 +33,11 @@ type MenuItem = {
 };
 
 const menuFooter = [
-  { title: "LINKEDIN", href: "#" },
-  { title: "AWWWARDS", href: "#" },
-  { title: "INSTAGRAM", href: "#" },
-  { title: "X / TWITTER", href: "#" },
-  { title: "DRIBBLE", href: "#" },
+  { title: "LINKEDIN", href: "/" },
+  { title: "AWWWARDS", href: "/" },
+  { title: "INSTAGRAM", href: "/" },
+  { title: "X / TWITTER", href: "/" },
+  { title: "DRIBBLE", href: "/" },
 ];
 
 export default function NavMenu({

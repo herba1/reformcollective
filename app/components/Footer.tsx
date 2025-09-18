@@ -3,7 +3,6 @@ import { SquareAsterisk } from "lucide-react";
 import { Pixelify_Sans } from "next/font/google";
 import Image from "next/image";
 import { NavLinks } from "./NavMenu";
-import { title } from "process";
 
 const pixelifySans = Pixelify_Sans({
   weight: "variable",

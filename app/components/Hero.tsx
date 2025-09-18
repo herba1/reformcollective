@@ -150,7 +150,7 @@ export default function Hero({ className = "" }) {
             loop={false}
             autoPlay
             controls={false}
-            src={"eye.mp4"}
+            src={"vid.mp4"}
           ></video>
           <div className="hero__marquee pointer-events-none z-10 w-full self-end overflow-hidden">
             <p
