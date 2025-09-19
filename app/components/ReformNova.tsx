@@ -18,26 +18,25 @@ export default function ReformNova() {
 
   return (
     <section className="relative mt-32 h-[100vh] min-h-fit w-full overflow-y-clip bg-black md:h-fit">
-      <div aria-hidden className="absolute top-0 bottom-0 z-0 select-none">
+      <div aria-hidden className="absolute top-0 w-full h-full bottom-0 z-0 select-none">
         <Image
           width={2000}
           height={2000}
           alt="static"
           src={"/static.webp"}
-          className="z-50 h-full w-full object-cover"
+          className="z-50 h-full w-full object-fill"
         ></Image>
       </div>
       <div
         aria-hidden
-        className="absolute top-0 right-0 bottom-0 left-0 z-10 mix-blend-overlay select-none"
+        className="absolute w-full brightness-80 saturate-0 contrast-200 mix-blend-overlay  h-full top-0 right-0 bottom-0 left-0 z-10 select-none"
       >
         <Image
-          width={2000}
-          height={2000}
+          width={1000}
+          height={1000}
           alt="blob of matter"
           src={"/blob.gif"}
-          className="z-0 mx-auto h-full w-full object-contain blur-[1px] brightness-50 contrast-200 invert saturate-0"
-          unoptimized
+          className="z-0 mx-auto h-full w-full object-contain "
         ></Image>
       </div>
       <div

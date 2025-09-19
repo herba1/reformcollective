@@ -1,5 +1,5 @@
 "use client";
-import { ArrowUpRight, SquareChevronDown } from "lucide-react";
+import { ArrowUpRight, SquareAsterisk, SquareChevronDown } from "lucide-react";
 import { Inter, Pixelify_Sans } from "next/font/google";
 import gsap from "gsap";
 import Observer from "gsap/Observer";
@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import SplitText from "gsap/SplitText";
 import Button from "./Button";
+import Image from "next/image";
 gsap.registerPlugin(SplitText, Observer);
 
 const inter = Inter({
@@ -60,7 +61,7 @@ export default function Hero({ className = "" }) {
 
       gsap.from(".hero__marquee", {
         yPercent: 100,
-        delay: 1,
+        delay: 4.5,
         duration: 1.5,
         ease: "power4.out",
       });
@@ -88,6 +89,7 @@ export default function Hero({ className = "" }) {
       Observer.create({
         target: ".hero__main",
         ignore: cursorItem.current,
+        type: "pointer",
         onHoverEnd: () => {
           gsap.to(cursorItem.current, {
             pointerEvents: "none",
@@ -146,22 +148,29 @@ export default function Hero({ className = "" }) {
             </Button>
           </div>
           <video
-            className="absolute top-0 left-0 z-0 h-full w-full object-cover contrast-80 saturate-150"
-            loop={false}
-            autoPlay
+            className="absolute top-0 left-0 z-0 h-full w-full object-cover contrast-100 saturate-100"
+            id="hero__video"
+            preload="auto"
             controls={false}
-            src={"vid.mp4"}
-          ></video>
+            playsInline={true}
+            muted={true}
+          >
+            <source type="video/mp4" src="vid5.mp4" />
+          </video>
           <div className="hero__marquee pointer-events-none z-10 w-full self-end overflow-hidden">
             <p
               className={`animate-marquee flex w-max items-stretch self-end text-[20vw] leading-none tracking-tighter text-nowrap text-black lg:text-[15vw] ${inter.className}`}
             >
               <span>REFORM CO</span>
               <span className="text-[5vw]">©</span>
-              <span className="mx-6 flex aspect-square h-full w-[15vw] items-center justify-center self-center rounded-md bg-red-500 text-transparent lg:w-[13vw]"></span>
+              <span className="mx-6 flex aspect-square h-full w-[15vw] items-center justify-center self-center rounded-2xl bg-red-500 text-transparent lg:w-[13vw]">
+                <SquareAsterisk className="h-1/2 w-full text-blue-700" />
+              </span>
               <span>REFORM CO</span>
               <span className="text-[5vw]">©</span>
-              <span className="mx-6 flex aspect-square h-full w-[15vw] items-center justify-center self-center rounded-md bg-red-500 text-transparent lg:w-[13vw]"></span>
+              <span className="mx-6 flex aspect-square h-full w-[15vw] items-center justify-center self-center rounded-2xl bg-red-500 text-transparent lg:w-[13vw]">
+                <SquareAsterisk className="h-1/2 w-full text-blue-700" />
+              </span>
             </p>
           </div>
         </div>

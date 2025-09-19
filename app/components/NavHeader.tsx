@@ -1,5 +1,5 @@
 "use client";
-import { Menu, Minus, SquareAsterisk } from "lucide-react";
+import { ArrowRight, Menu, Minus, SquareAsterisk } from "lucide-react";
 import { useNav } from "../context/NavContext";
 import NavTypewriter from "./NavTypewriter";
 import gsap from "gsap";
@@ -104,8 +104,8 @@ function MenuButton() {
     >
       <div className="grid h-fit grid-cols-1 grid-rows-1 items-center justify-center overflow-clip font-semibold">
         <span className="button__close col-start-1 row-start-1">
-          <span className="flex">
-            <Minus />
+          <span className="flex items-center">
+            <Minus size={18} />
             <span>CLOSE</span>
           </span>
           <div
@@ -117,9 +117,9 @@ function MenuButton() {
           </div>
         </span>
         <span className="button__open col-start-1 row-start-1">
-          <span className="flex">
-            <Menu className="open__svg" />
-            {/* <ArrowRight className="open__svg2 hidden" /> */}
+          <span className="flex items-center group w-fit justify-between">
+            <Menu size={18} className="open__svg group-active:scale-105 group-hover:scale-105 transition-transform ease-out duration-500 " />
+            {/* <ArrowRight className="open__svg2 " /> */}
             <span>MENU</span>
           </span>
           <div

@@ -19,8 +19,8 @@ export default function Loader() {
   useGSAP(
     () => {
       // Your GSAP animations here
-      const split1 = SplitText.create(".text1", { type: "chars" });
-      const split2 = SplitText.create(".text2", { type: "chars" });
+      const split1 = SplitText.create(".text1", { type: "chars",reduceWhiteSpace:false });
+      const split2 = SplitText.create(".text2", { type: "chars",reduceWhiteSpace:false });
 
       const tl = gsap.timeline({ repeat: 0, paused: false });
       const duration = 0.8;
@@ -56,7 +56,7 @@ export default function Loader() {
           ".r",
           {
             overwrite: "auto",
-            x: "17.7vw",
+            xPercent: "330",
             ease: "power3.in",
             duration: 0.7,
           },
@@ -66,7 +66,7 @@ export default function Loader() {
           ".c",
           {
             overwrite: "auto",
-            x: "-16.2vw",
+            xPercent: "-200",
             ease: "power3.in",
             duration: 0.7,
           },
@@ -86,6 +86,10 @@ export default function Loader() {
             yPercent: -100,
             ease: "power3",
             duration: "0.8",
+            onComplete:()=>{
+              const video  = document.querySelector('#hero__video') as HTMLVideoElement;
+              video.play()
+            }
           },
           "<"
         )
@@ -156,16 +160,22 @@ export default function Loader() {
       </div>
       <div className="slide__top absolute top-0 z-0 h-1/2 w-full bg-red-700"></div>
       <div
-        className={`relative z-10 grid grid-cols-1 grid-rows-1 place-content-center overflow-hidden text-[16.8vw] md:text-[clamp(32px,8vw,5000px)] ${dmSans.className} `}
+        className={`relative z-10 grid grid-cols-1 grid-rows-1 place-content-center overflow-hidden text-[16.8vw] sm:text-[clamp(32px,8vw,5000px)] ${dmSans.className} `}
       >
         <h1 className="text1 col-start-1 row-start-1 leading-none font-bold tracking-tighter">
           <span className="r">R</span>
-          <span className="fade">EFORM </span>
+          <span className="fade">EFORM</span>
+          <span>&nbsp;</span>
           <span className="c">C</span>
           <span className="fade">O</span>
         </h1>
         <h1 className="text2 col-start-1 row-start-1 leading-none font-bold tracking-tighter">
-          REFORM CO
+          <span className="r">R</span>
+          <span className="fade">EFORM</span>
+          <span>&nbsp;</span>
+          <span className="c">C</span>
+          <span className="fade">O</span>
+          {/* REFORM CO */}
         </h1>
       </div>
     </section>

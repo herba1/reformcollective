@@ -150,6 +150,7 @@ export default function Story() {
 
       articleTl
         .from([".article", ".button"], {
+          delay:0.5,
           yPercent: 35,
           opacity: 0,
           duration: 1.2,

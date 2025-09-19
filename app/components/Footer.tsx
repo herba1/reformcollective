@@ -69,7 +69,7 @@ export default function Footer() {
           item={{ title: "Lets Chat", subtitle: ``, href: "" }}
         />
 
-        <div className="col-span-2 lg:col-span-full lg:row-start-3">
+        <div className="col-span-2 pointer-events-none select-none lg:col-span-full lg:row-start-3">
           <Image
             src={"/reformlogo.svg"}
             alt="ReformCollective Logo"
