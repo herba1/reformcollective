@@ -92,8 +92,8 @@ export default function Button({
             gsap.to(outline, {
               ease: "power4.out",
               duration: 2,
-              yPercent: cords.current.y * index * 2.5,
-              xPercent: cords.current.x * index * 1.5,
+              yPercent: cords.current.y * index * 1.5,
+              xPercent: cords.current.x * index * 1,
             });
           });
         },

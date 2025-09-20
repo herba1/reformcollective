@@ -27,13 +27,13 @@ const DATA = {
 };
 export default function Footer() {
   return (
-    <footer className="mt-32 md:mt-[7vw] bg-amber-50">
+    <footer className="mt-32 bg-amber-50 md:mt-[7vw]">
       <div className="mx-5 grid grid-cols-2 gap-y-2 lg:grid-cols-12 lg:items-end lg:justify-start lg:gap-5">
         <a href="#" className="col-span-2 row-start-1 lg:col-span-1">
           <SquareAsterisk size={52} />
         </a>
 
-        <ul className="col-span-2 lg:text-[1.1vw] row-start-2 flex flex-col lg:col-start-1">
+        <ul className="col-span-2 row-start-2 flex flex-col lg:col-start-1 lg:text-[1.1vw]">
           {DATA.links.map((e, i) => {
             return (
               <li key={i}>
@@ -49,7 +49,7 @@ export default function Footer() {
           {DATA.socials.map((e, i) => {
             return (
               <li
-                className={`text-xs leading-none lg:text-[0.85vw] lg:text-right ${pixelifySans.className}`}
+                className={`text-xs leading-none lg:text-right lg:text-[0.85vw] ${pixelifySans.className}`}
                 key={i}
               >
                 <a href="#">{e.title}</a>
@@ -63,13 +63,17 @@ export default function Footer() {
           <span>something with us?</span>
         </div>
 
-        <NavLinks
-          className="col-span-1 -ml-[5vw] lg:col-span-4 lg:col-start-7 lg:row-start-2 lg:-mb-[0.8vw] lg:-ml-[7vw]"
-          textClassName=" text-[13vw] lg:text-[7.2vw]  "
-          item={{ title: "Lets Chat", subtitle: ``, href: "" }}
-        />
+        <ul
 
-        <div className="col-span-2 pointer-events-none select-none lg:col-span-full lg:row-start-3">
+            className="col-span-1 -ml-[5vw] lg:col-span-4 lg:col-start-7 lg:row-start-2 lg:-mb-[0.8vw] lg:-ml-[7vw]"
+        >
+          <NavLinks
+            textClassName=" text-[13vw] lg:text-[7.2vw]  "
+            item={{ title: "Lets Chat", subtitle: ``, href: "" }}
+          />
+        </ul>
+
+        <div className="pointer-events-none col-span-2 select-none lg:col-span-full lg:row-start-3">
           <Image
             src={"/reformlogo.svg"}
             alt="ReformCollective Logo"

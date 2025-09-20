@@ -1,3 +1,4 @@
+"use client";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Instrument_Serif, Pixelify_Sans } from "next/font/google";
 import { useNav } from "../context/NavContext";
@@ -98,15 +99,17 @@ export default function NavMenu({
             </li>
           );
         })}
-        <Button
-          btnClassName="bg-red-600"
-          className="col-span-full hidden touch-manipulation grid-cols-2 sm:flex"
-        >
-          <span className="flex w-full justify-between">
-            <span className={`w-full text-xl font-bold`}>LET`S CHAT</span>
-            <ArrowUpRight />
-          </span>
-        </Button>
+        <li className="col-span-full hidden touch-manipulation grid-cols-2 sm:flex">
+          <Button
+            btnClassName="bg-red-600"
+            className="col-span-full hidden touch-manipulation grid-cols-2 sm:flex"
+          >
+            <span className="flex w-full justify-between">
+              <span className={`w-full text-xl font-bold`}>LET`S CHAT</span>
+              <ArrowUpRight />
+            </span>
+          </Button>
+        </li>
       </ul>
     </menu>
   );

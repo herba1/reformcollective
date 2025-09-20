@@ -61,7 +61,7 @@ export default function Hero({ className = "" }) {
 
       gsap.from(".hero__marquee", {
         yPercent: 100,
-        delay: 4.5,
+        delay: 8.2,
         duration: 1.5,
         ease: "power4.out",
       });
@@ -148,14 +148,14 @@ export default function Hero({ className = "" }) {
             </Button>
           </div>
           <video
-            className="absolute top-0 left-0 z-0 h-full w-full object-cover contrast-100 saturate-100"
+            className="absolute  top-0 left-0 z-0 h-full w-full object-cover contrast-80 saturate-150"
             id="hero__video"
             preload="auto"
             controls={false}
             playsInline={true}
             muted={true}
           >
-            <source type="video/mp4" src="vid5.mp4" />
+            <source type="video/mp4" src="vid.mp4" />
           </video>
           <div className="hero__marquee pointer-events-none z-10 w-full self-end overflow-hidden">
             <p
@@ -180,7 +180,7 @@ export default function Hero({ className = "" }) {
           <span>EST.2015</span>
           <span className="flex items-center justify-center">
             <span>(</span>
-            <span className="relative grid h-min grid-cols-1 grid-rows-1 overflow-clip leading-none">
+            <span aria-hidden className="relative grid h-min grid-cols-1 grid-rows-1 overflow-clip leading-none">
               <span className="scrollSplit1 col-span-1 col-start-1 row-start-1">
                 SCROLL DOWN
               </span>
